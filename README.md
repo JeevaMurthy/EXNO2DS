@@ -23,7 +23,157 @@ STEP 7: Use cross tabulation method to quantitatively analyze the relationship b
 STEP 8: Use heatmap method of representation to show relationships between two variables, one plotted on each axis.
 
 ## CODING AND OUTPUT
-        <<INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS>>
+```
+REG NO: 212223230090
+NAME : JEEVA K
+```
+
+```python
+import pandas as pd
+df=pd.read_csv('/content/titanic_dataset.csv')
+df
+```
+
+![alt text](<Screenshot 2024-09-11 092318.png>)
+
+
+```python
+df.shape
+```
+
+
+![alt text](<Screenshot 2024-09-11 092327.png>)
+
+
+```python
+df.isnull().sum()
+```
+
+![alt text](<Screenshot 2024-09-11 092334.png>)
+
+
+
+```python
+df.dropna(inplace=True)
+```
+```python
+df.isnull().sum()
+```
+
+
+![alt text](<Screenshot 2024-09-11 092343.png>)
+
+
+
+```python
+df.info()
+```
+
+
+![alt text](<Screenshot 2024-09-11 092350.png>)
+
+
+
+```python
+df.shape
+```
+
+![alt text](<Screenshot 2024-09-11 092355.png>)
+
+
+
+```python
+df.set_index("PassengerId",inplace=True)
+```
+
+
+
+
+
+```python
+df.describe()
+```
+
+![alt text](<Screenshot 2024-09-11 092402.png>)
+
+
+```python
+df
+```
+
+![alt text](<Screenshot 2024-09-11 092409.png>)
+
+
+```python
+df.nunique()
+```
+
+![alt text](<Screenshot 2024-09-11 092416.png>)
+
+```python
+df["Survived"].value_counts()
+```
+
+![alt text](<Screenshot 2024-09-11 092422.png>)
+
+
+```python
+per=(df["Survived"].value_counts()/df.shape[0]*100).round(2)
+per
+```
+
+![alt text](<Screenshot 2024-09-11 092427.png>)
+
+
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+
+```python
+sns.countplot(data=df,x="Survived")
+```
+
+![alt text](<Screenshot 2024-09-11 092444.png>)
+
+
+
+```python
+df
+```
+
+![alt text](<Screenshot 2024-09-11 092452.png>)
+
+
+```python
+df.Pclass.unique()
+```
+
+![alt text](<Screenshot 2024-09-11 092458.png>)
+
+```python
+sns.catplot(x="Sex",col="Survived",kind="count",data=df,height=5,aspect=.7)
+```
+
+![alt text](<Screenshot 2024-09-11 092505.png>)
+
+
+```python
+sns.catplot(x='Survived',hue="Sex",data=df,kind="count")
+```
+
+![alt text](<Screenshot 2024-09-11 092513.png>)
+
+
+
+```python
+sns.catplot(data=df,col="Survived",x="Sex",hue="Pclass",kind="count")
+```
+
+![alt text](<Screenshot 2024-09-11 092528.png>)
 
 # RESULT
-        <<INCLUDE YOUR RESULT HERE>>
+The Exploratory Data Analysis on the given data set has been performed.
+
